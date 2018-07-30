@@ -178,13 +178,13 @@ ScrollHorizontal.propTypes = {
   style: PropTypes.object,
   className: PropTypes.string,
   children: PropTypes.array.isRequired,
-  innerRef: propTypes.func,
+  innerRef: PropTypes.func,
 }
 
 ScrollHorizontal.defaultProps = {
   reverseScroll: false,
   pageLock: false,
   config: null,
-  style: { width: `100%`, height: `100%` },
+  style: {},
   className: null
 }
