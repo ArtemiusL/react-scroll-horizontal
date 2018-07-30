@@ -124,7 +124,13 @@ export default class ScrollHorizontal extends Component {
   }
 
   render() {
-    const { config, style, children } = this.props
+    const {
+      config,
+      style,
+      children,
+      innerRef,
+    } = this.props;
+
     const { width, height } = style
     const springConfig = config || presets.noWobble
 
@@ -141,7 +147,8 @@ export default class ScrollHorizontal extends Component {
       <div
         onWheel={this.onScrollStart}
         ref={r => {
-          this.hScrollParent = r
+          this.hScrollParent = r;
+          innerRef(r);
         }}
         style={styles}
         className={`scroll-horizontal ${this.props.className || ''}`}
@@ -170,7 +177,8 @@ ScrollHorizontal.propTypes = {
   config: PropTypes.object,
   style: PropTypes.object,
   className: PropTypes.string,
-  children: PropTypes.array.isRequired
+  children: PropTypes.array.isRequired,
+  innerRef: propTypes.func,
 }
 
 ScrollHorizontal.defaultProps = {
